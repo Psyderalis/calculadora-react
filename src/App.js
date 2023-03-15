@@ -15,8 +15,12 @@ function App() {
   };
 
   const calcularResultado = () => {
+    if (input) {
     setInput(evaluate(input))
-  }
+    } else {
+      alert('Por favor ingrese valores para calcular')
+    }
+  };
 //en los props a continuacion, se pasan las funciones pero sin el (), ya que no queremos invocarlas, solamente enviarlas como props a los componentes. Luego en los componentes se utilizan con valores.
   return (
     <div className="App">
