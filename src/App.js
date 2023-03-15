@@ -4,6 +4,7 @@ import Boton from './componentes/Boton'
 import Pantalla from './componentes/Pantalla'
 import BotonClear from './componentes/BotonClear';
 import { useState } from 'react';
+import { evaluate } from 'mathjs'; //libreria de funciones matematicas
 
 function App() {
 
@@ -13,6 +14,10 @@ function App() {
     setInput(input + valor);
   };
 
+  const calcularResultado = () => {
+    setInput(evaluate(input))
+  }
+//en los props a continuacion, se pasan las funciones pero sin el (), ya que no queremos invocarlas, solamente enviarlas como props a los componentes. Luego en los componentes se utilizan con valores.
   return (
     <div className="App">
       <div className='fcc-logo-contenedor'>
@@ -42,7 +47,7 @@ function App() {
           <Boton manejarClic={agregarInput}>*</Boton>
         </div>
         <div className='fila'>
-          <Boton manejarClic={agregarInput}>=</Boton>
+          <Boton manejarClic={calcularResultado}>=</Boton>
           <Boton manejarClic={agregarInput}>0</Boton>
           <Boton manejarClic={agregarInput}>.</Boton>
           <Boton manejarClic={agregarInput}>/</Boton>
